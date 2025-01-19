@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/api_services.dart';
 import '../widgets/joke_card.dart';
-import 'jokes_list_screen.dart';
-import 'random_joke_screen.dart';
+import 'jokes.dart';
+import 'random_joke.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
