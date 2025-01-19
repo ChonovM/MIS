@@ -22,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Joke App'),
+        title: const Text('Joke App'),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.lightbulb,
               color: Colors.orange,
             ),
@@ -42,11 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
         future: jokeTypes,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No joke types found.'));
+            return const Center(child: Text('No joke types found.'));
           }
 
           return ListView(

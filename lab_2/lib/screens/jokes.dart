@@ -17,11 +17,11 @@ class JokesListScreen extends StatelessWidget {
         future: ApiService.getJokesByType(type),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No jokes found.'));
+            return const Center(child: Text('No jokes found.'));
           }
 
           return ListView(

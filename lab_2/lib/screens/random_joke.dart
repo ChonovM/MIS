@@ -7,17 +7,17 @@ class RandomJokeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Random Joke of the Day'),
+        title: const Text('Random Joke of the Day'),
       ),
       body: FutureBuilder<Joke>(
         future: ApiService.getRandomJoke(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData) {
-            return Center(child: Text('No joke found.'));
+            return const Center(child: Text('No joke found.'));
           }
 
           final joke = snapshot.data!;
@@ -26,11 +26,11 @@ class RandomJokeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(joke.setup, style: TextStyle(fontSize: 20)),
-                SizedBox(height: 10),
+                Text(joke.setup, style: const TextStyle(fontSize: 20)),
+                const SizedBox(height: 10),
                 Text(joke.punchline,
-                    style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold)),
               ],
             ),
           );
